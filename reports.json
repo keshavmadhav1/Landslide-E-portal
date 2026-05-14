@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1777907118966,
+    "name": "vg",
+    "contact": "vsev",
+    "type": "Landslide",
+    "severity": "Low",
+    "datetime": "2026-05-20T12:38",
+    "landmark": "near bridge",
+    "location": "ladakh",
+    "description": "fwfwf",
+    "latitude": 33.9456407,
+    "longitude": 77.6568576,
+    "createdAt": "2026-05-04T15:05:18.966Z"
+  },
+  {
+    "id": 1777907118953,
+    "name": "vg",
+    "contact": "vsev",
+    "type": "Landslide",
+    "severity": "Low",
+    "datetime": "2026-05-20T12:38",
+    "landmark": "near bridge",
+    "location": "ladakh",
+    "description": "fwfwf",
+    "latitude": 33.9456407,
+    "longitude": 77.6568576,
+    "createdAt": "2026-05-04T15:05:18.953Z"
+  },
+  {
+    "id": 1777903010556,
+    "name": "keshav madhav",
+    "contact": "7743024370",
+    "type": "Landslide",
+    "severity": "Low",
+    "datetime": "2026-05-28T23:30",
+    "landmark": "near bridge",
+    "location": "Manali",
+    "description": "cencjejcne",
+    "latitude": 32.2454608,
+    "longitude": 77.1872926,
+    "createdAt": "2026-05-04T13:56:50.556Z"
+  },
+  {
+    "id": 1777902339066,
+    "name": "keshav madhav",
+    "contact": "7743024370",
+    "type": "Landslide",
+    "severity": "High",
+    "datetime": "2026-05-12T23:19",
+    "landmark": "near bridge",
+    "location": "manali",
+    "description": "landslide in front of our car",
+    "latitude": null,
+    "longitude": null,
+    "createdAt": "2026-05-04T13:45:39.066Z"
+  }
+]

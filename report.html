@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Report Incident | Landslide E-Portal</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body class="report-page">
+
+   <canvas id="rain"></canvas>
+
+<header>
+    <div class="heading1">Landslide E-Portal</div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="risk.html">Check Risk</a></li>
+            <li><a href="AIchatbot.html">AIchatbot</a></li>
+            <li><a href="report.html">Report</a></li>
+        </ul>
+    </nav>
+</header>
+  
+
+  <!-- Page Content -->
+  <main class="report-main">
+    <div class="report-header">
+      <span class="badge-tag">Landslide E-Portal</span>
+      <h1 class="report-title">Submit an <span class="accent">Incident Report</span></h1>
+      <p class="report-subtitle">Help us respond faster. Fill in the details of the landslide or risk you've observed.</p>
+    </div>
+
+    <div class="report-card">
+      <form id="reportForm" enctype="multipart/form-data">
+
+        <!-- Section 1: Reporter Info -->
+        <div class="form-section">
+          <div class="section-label">
+            <i class="fa-solid fa-user-shield"></i>
+            <span>Reporter Information</span>
+          </div>
+          <div class="form-row two-col">
+            <div class="form-group">
+              <label for="fullName">Full Name <span class="required">*</span></label>
+              <input type="text" id="fullName" name="fullName" placeholder="e.g. Ravi Kumar" required />
+            </div>
+            <div class="form-group">
+              <label for="contact">Phone / Email <span class="required">*</span></label>
+              <input type="text" id="contact" name="contact" placeholder="e.g. 9876543210 or mail@domain.com" required />
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Incident Location -->
+        <div class="form-section">
+          <div class="section-label">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Incident Location</span>
+          </div>
+          <div class="form-row two-col">
+            <div class="form-group">
+              <label for="state">State <span class="required">*</span></label>
+              <select id="state" name="state" required>
+                <option value="" disabled selected>Select State</option>
+                <option>Himachal Pradesh</option>
+                <option>Uttarakhand</option>
+                <option>Jammu & Kashmir</option>
+                <option>Sikkim</option>
+                <option>Arunachal Pradesh</option>
+                <option>Manipur</option>
+                <option>Meghalaya</option>
+                <option>Mizoram</option>
+                <option>Nagaland</option>
+                <option>Kerala</option>
+                <option>Maharashtra</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="district">District / Area <span class="required">*</span></label>
+              <input type="text" id="district" name="district" placeholder="e.g. Shimla, Almora" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group full-width">
+              <label for="address">Exact Address / Landmark</label>
+              <input type="text" id="address" name="address" placeholder="Near National Highway 5, Beside river..." />
+            </div>
+          </div>
+          <div class="form-row two-col">
+            <div class="form-group">
+              <label for="latitude">Latitude (optional)</label>
+              <input type="number" id="latitude" name="latitude" step="any" placeholder="e.g. 31.1048" />
+            </div>
+            <div class="form-group">
+              <label for="longitude">Longitude (optional)</label>
+              <input type="number" id="longitude" name="longitude" step="any" placeholder="e.g. 77.1734" />
+            </div>
+          </div>
+          <button type="button" class="detect-location-btn" id="detectLocation">
+            <i class="fa-solid fa-crosshairs"></i> Auto-detect My Location
+          </button>
+        </div>
+
+        <!-- Section 3: Incident Details -->
+        <div class="form-section">
+          <div class="section-label">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <span>Incident Details</span>
+          </div>
+          <div class="form-row two-col">
+            <div class="form-group">
+              <label for="incidentDate">Date of Incident <span class="required">*</span></label>
+              <input type="date" id="incidentDate" name="incidentDate" required />
+            </div>
+            <div class="form-group">
+              <label for="incidentTime">Approximate Time</label>
+              <input type="time" id="incidentTime" name="incidentTime" />
+            </div>
+          </div>
+          <div class="form-row two-col">
+            <div class="form-group">
+              <label for="incidentType">Type of Incident <span class="required">*</span></label>
+              <select id="incidentType" name="incidentType" required>
+                <option value="" disabled selected>Select Type</option>
+                <option>Landslide</option>
+                <option>Mudflow / Mudslide</option>
+                <option>Rockfall</option>
+                <option>Debris Flow</option>
+                <option>Soil Erosion</option>
+                <option>Slope Crack / Risk Zone</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="severity">Severity Level <span class="required">*</span></label>
+              <div class="severity-selector">
+                <label class="sev-option low">
+                  <input type="radio" name="severity" value="Low" required />
+                  <span>Low</span>
+                </label>
+                <label class="sev-option medium">
+                  <input type="radio" name="severity" value="Medium" />
+                  <span>Medium</span>
+                </label>
+                <label class="sev-option high">
+                  <input type="radio" name="severity" value="High" />
+                  <span>High</span>
+                </label>
+                <label class="sev-option critical">
+                  <input type="radio" name="severity" value="Critical" />
+                  <span>Critical</span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="form-row two-col">
+            <div class="form-group">
+              <label for="casualties">Estimated People Affected</label>
+              <input type="number" id="casualties" name="casualties" min="0" placeholder="0" />
+            </div>
+            <div class="form-group">
+              <label for="infrastructure">Infrastructure Damaged?</label>
+              <select id="infrastructure" name="infrastructure">
+                <option value="None">None</option>
+                <option value="Road">Road / Highway</option>
+                <option value="Bridge">Bridge</option>
+                <option value="Building">Building / Houses</option>
+                <option value="Power Line">Power Line</option>
+                <option value="Multiple">Multiple</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group full-width">
+              <label for="description">Description <span class="required">*</span></label>
+              <textarea id="description" name="description" rows="5" placeholder="Describe what you saw — the extent, direction, visible damage, sounds, any warnings, etc." required></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 4: Photo Upload -->
+        <div class="form-section">
+          <div class="section-label">
+            <i class="fa-solid fa-camera"></i>
+            <span>Photo Evidence (Optional)</span>
+          </div>
+          <div class="upload-zone" id="uploadZone">
+            <input type="file" id="photos" name="photos" accept="image/*" multiple hidden />
+            <div class="upload-content" id="uploadContent">
+              <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+              <p>Drag & drop images here, or <span class="upload-link">browse</span></p>
+              <small>Supports JPG, PNG, WEBP — Max 5MB each</small>
+            </div>
+            <div class="preview-grid" id="previewGrid"></div>
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <div class="form-submit-area">
+          <p class="privacy-note"><i class="fa-solid fa-lock"></i> Your report is confidential and will be reviewed by disaster response teams.</p>
+          <button type="submit" class="submit-btn" id="submitBtn">
+            <span class="btn-text">Submit Report</span>
+            <i class="fa-solid fa-paper-plane"></i>
+            <div class="btn-loader" id="btnLoader"></div>
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- Success Message -->
+    <div class="success-overlay" id="successOverlay">
+      <div class="success-card">
+        <div class="success-icon">
+          <i class="fa-solid fa-circle-check"></i>
+        </div>
+        <h2>Report Submitted!</h2>
+        <p>Thank you for reporting. Our disaster response team has been notified and will take action shortly.</p>
+        <div class="report-id-box">
+          Report ID: <strong id="reportIdDisplay">—</strong>
+        </div>
+        <button class="reset-btn" id="resetBtn">Submit Another Report</button>
+      </div>
+    </div>
+
+  </main>
+  <footer class="footer">
+    <div class="footer-container">
+
+        <div class="footer-col">
+            <h2 class="footer-heding">Landslide E-Portal</h2>
+            <p>Real-time landslide monitoring, prediction and reporting system.</p>
+        </div>
+
+        <div class="footer-col">
+            <h3>Quick Links</h3>
+            <a href="index.html">Home</a>
+            <a href="risk.html">Check Risk</a>
+            <a href="AIchatbot.html">AIchatbot</a>
+            <a href="report.html">Report</a>
+        </div>
+
+        <div class="footer-col">
+            <h3>Contact</h3>
+            <p>Email: support@portal.com</p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Landslide E-Portal | All Rights Reserved
+    </div>
+</footer>
+<script src="js/main.js"></script>
+  <script src="js/report.js"></script>
+</body>
+</html>

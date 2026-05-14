@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Risk Map – Landslide E-Portal</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+  <link rel="stylesheet" href="/risk.css" />
+</head>
+
+<body class="risk-page">
+
+  <canvas id="rain"></canvas>
+  <header class="site-header">
+
+
+    <div class="heading1">Landslide E-Portal</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="risk.html">Check Risk</a></li>
+        <li><a href="AIchatbot.html">AIchatbot</a></li>
+        <li><a href="report.html">Report</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <header class="risk-header">
+
+    <div class="rain-overlay" id="rainCanvas"></div>
+    <div class="risk-header-content">
+      <span class="risk-badge"><i class="fas fa-satellite-dish"></i> LIVE RISK MONITOR</span>
+      <h1>India Landslide <span class="accent">Risk Map</span></h1>
+      <p>Real-time landslide incident tracking across all Indian states with AI-powered risk scoring</p>
+    </div>
+  </header>
+
+  
+  <main class="risk-main">
+
+ 
+    <aside class="risk-panel">
+
+      
+      <div class="panel-section search-section">
+        <h3><i class="fas fa-search-location"></i> Search Location</h3>
+        <div class="search-wrapper">
+          <input type="text" id="locationSearch" placeholder="Type a city, district or state…" autocomplete="off" />
+          <button id="searchBtn" title="Search">
+            <i class="fas fa-arrow-right"></i>
+          </button>
+          <div id="suggestions" class="suggestions-dropdown"></div>
+        </div>
+        <div id="locationResult" class="location-result hidden">
+          <div class="result-header">
+            <i class="fas fa-map-marker-alt"></i>
+            <span id="resultName"></span>
+          </div>
+          <div class="result-risk-meter">
+            <label>Risk Level</label>
+            <div class="risk-bar-track">
+              <div class="risk-bar-fill" id="riskBarFill"></div>
+            </div>
+            <span class="risk-label" id="riskLabel"></span>
+          </div>
+          <div class="result-stats" id="resultStats"></div>
+        </div>
+      </div>
+
+      
+      <div class="panel-section feed-section">
+        <h3>
+          <i class="fas fa-bolt"></i> Live Incidents
+          <span class="live-dot"></span>
+        </h3>
+        <ul class="incident-feed" id="incidentFeed">
+          <li class="feed-loading"><i class="fas fa-circle-notch fa-spin"></i> Fetching live data…</li>
+        </ul>
+      </div>
+
+      
+      <div class="panel-section legend-section">
+        <h3><i class="fas fa-layer-group"></i> Risk Legend</h3>
+        <ul class="legend-list">
+          <li><span class="legend-dot critical"></span> Critical (Active slide)</li>
+          <li><span class="legend-dot high"></span> High Risk Zone</li>
+          <li><span class="legend-dot moderate"></span> Moderate Risk</li>
+          <li><span class="legend-dot low"></span> Low / Monitored</li>
+          <li><span class="legend-dot safe"></span> Safe / No Data</li>
+        </ul>
+      </div>
+
+      
+      <div class="panel-section stats-section">
+        <div class="stat-card">
+          <span class="stat-number" id="statTotal">—</span>
+          <span class="stat-label">Total Incidents (2024)</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" id="statActive">—</span>
+          <span class="stat-label">Active Alerts Today</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" id="statStates">—</span>
+          <span class="stat-label">States Affected</span>
+        </div>
+      </div>
+
+    </aside>
+
+   
+    <div class="map-container">
+      <div id="map"></div>
+      <div class="map-controls">
+        <button class="map-ctrl-btn" id="btnReset" title="Reset view"><i
+            class="fas fa-compress-arrows-alt"></i></button>
+        <button class="map-ctrl-btn" id="btnHeatmap" title="Toggle heatmap"><i class="fas fa-fire"></i></button>
+        <button class="map-ctrl-btn" id="btnSatellite" title="Toggle satellite"><i
+            class="fas fa-satellite"></i></button>
+      </div>
+      <div class="map-timestamp">
+        <i class="fas fa-clock"></i> Last updated: <span id="lastUpdated">—</span>
+      </div>
+    </div>
+
+  </main>
+  <footer class="footer">
+    <div class="footer-container">
+
+        <div class="footer-col">
+            <h2 class="footer-heding">Landslide E-Portal</h2>
+            <p>Real-time landslide monitoring, prediction and reporting system.</p>
+        </div>
+
+        <div class="footer-col">
+            <h3>Quick Links</h3>
+            <a href="index.html">Home</a>
+            <a href="risk.html">Check Risk</a>
+            <a href="AIchatbot.html">AIchatbot</a>
+            <a href="report.html">Report</a>
+        </div>
+
+        <div class="footer-col">
+            <h3>Contact</h3>
+            <p>Email: support@portal.com</p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Landslide E-Portal | All Rights Reserved
+    </div>
+</footer>
+
+
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.heat/0.2.0/leaflet-heat.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/risk.js"></script>
+</body>
+
+</html>

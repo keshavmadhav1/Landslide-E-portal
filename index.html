@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="home-page">
+
+    <canvas id="rain"></canvas>
+
+<header>
+    <div class="heading1">Landslide E-Portal</div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="risk.html">Check Risk</a></li>
+            <li><a href="AIchatbot.html">AIchatbot</a></li>
+            <li><a href="report.html">Report</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+    <main>
+  <section class="home-hero">
+    <div class="home-hero-content">
+      <p class="home-badge">Landslide E-Portal</p>
+      <h1>Detect, report, and respond to landslide risk faster</h1>
+      <p class="home-subtitle">
+        A smart disaster awareness platform for checking risk, reporting incidents, and getting safety guidance in one place.
+      </p>
+
+      <div class="home-actions">
+        <a href="risk.html" class="home-btn primary">Check Risk</a>
+        <a href="report.html" class="home-btn secondary">Report Incident</a>
+        <a href="AIchatbot.html" class="home-btn ghost">AI Assistant</a>
+      </div>
+
+      <div class="home-stats">
+        <div class="stat-card">
+          <strong>24/7</strong>
+          <span>Safety guidance</span>
+        </div>
+        <div class="stat-card">
+          <strong>Live</strong>
+          <span>Risk monitoring</span>
+        </div>
+        <div class="stat-card">
+          <strong>Fast</strong>
+          <span>Incident reporting</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="home-hero-visual">
+      <div class="hero-image-frame">
+        <div class="landslide-scene" aria-hidden="true">
+          <svg viewBox="0 0 900 620" role="img" aria-label="Landslide scene illustration">
+            <defs>
+              <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#08111f"/>
+                <stop offset="100%" stop-color="#0b172a"/>
+              </linearGradient>
+              <linearGradient id="hill1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#1a2f4d"/>
+                <stop offset="100%" stop-color="#0e1a2c"/>
+              </linearGradient>
+              <linearGradient id="hill2" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#2b4a72"/>
+                <stop offset="100%" stop-color="#13233a"/>
+              </linearGradient>
+              <linearGradient id="mud" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#5a4633"/>
+                <stop offset="100%" stop-color="#2f2318"/>
+              </linearGradient>
+              <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="rgba(56,189,248,0.28)"/>
+                <stop offset="100%" stop-color="rgba(56,189,248,0)"/>
+              </linearGradient>
+            </defs>
+
+            <rect width="900" height="620" fill="url(#sky)"></rect>
+
+            <circle cx="740" cy="110" r="68" fill="rgba(56,189,248,0.10)"></circle>
+            <circle cx="740" cy="110" r="34" fill="rgba(56,189,248,0.18)"></circle>
+
+            <path d="M0,420 C120,360 180,300 290,280 C390,260 490,285 580,260 C690,230 780,150 900,170 L900,620 L0,620 Z" fill="url(#hill1)"></path>
+            <path d="M0,500 C130,430 210,390 330,370 C450,350 560,380 660,350 C760,320 840,250 900,260 L900,620 L0,620 Z" fill="url(#hill2)"></path>
+
+            <path d="M210,252 C290,182 390,168 470,205 C520,228 565,230 620,205 C675,180 735,185 790,225 L790,620 L180,620 Z" fill="url(#mud)"></path>
+
+            <path d="M245,260 C330,226 415,220 500,248 C560,267 620,270 690,245 C735,230 765,232 790,240" stroke="rgba(255,255,255,0.08)" stroke-width="5" fill="none"></path>
+
+            <path d="M305,255 C340,310 375,340 430,372 C460,390 490,425 510,470" stroke="rgba(255,255,255,0.10)" stroke-width="9" fill="none"></path>
+            <path d="M395,240 C425,295 470,330 520,350 C560,366 600,400 640,455" stroke="rgba(255,255,255,0.10)" stroke-width="8" fill="none"></path>
+
+            <circle cx="430" cy="392" r="18" fill="#7a5e44"></circle>
+            <circle cx="472" cy="414" r="12" fill="#6b533c"></circle>
+            <circle cx="520" cy="444" r="22" fill="#5f4a36"></circle>
+            <circle cx="585" cy="470" r="15" fill="#6d553e"></circle>
+            <circle cx="640" cy="502" r="28" fill="#4c3b2a"></circle>
+
+            <path d="M120,510 C170,470 230,455 300,458 C360,460 420,480 480,470 C555,458 620,410 690,405 C770,400 830,430 900,500 L900,620 L0,620 L0,560 C30,540 72,532 120,510 Z" fill="rgba(4,10,20,0.70)"></path>
+
+            <path d="M0,470 C110,430 190,425 275,440 C360,455 430,500 520,505 C610,510 685,470 780,440 C835,422 870,420 900,425 L900,620 L0,620 Z" fill="rgba(2,7,14,0.52)"></path>
+
+            <g stroke="rgba(180,230,255,0.22)" stroke-width="3" stroke-linecap="round">
+              <line x1="95" y1="70" x2="95" y2="110" />
+              <line x1="145" y1="45" x2="145" y2="90" />
+              <line x1="205" y1="78" x2="205" y2="122" />
+              <line x1="270" y1="50" x2="270" y2="96" />
+              <line x1="640" y1="58" x2="640" y2="115" />
+              <line x1="700" y1="30" x2="700" y2="85" />
+              <line x1="770" y1="70" x2="770" y2="122" />
+            </g>
+
+            <rect x="0" y="0" width="900" height="620" fill="url(#glow)"></rect>
+          </svg>
+        </div>
+      </div>
+
+      <div class="hero-float-card card-top">
+        <span class="dot"></span>
+        <div>
+          <strong>Weather Alert</strong>
+          <p>Heavy rainfall can increase landslide danger.</p>
+        </div>
+      </div>
+
+      <div class="hero-float-card card-bottom">
+        <span class="dot"></span>
+        <div>
+          <strong>Emergency Ready</strong>
+          <p>Know safe routes before disaster strikes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-grid">
+    <a href="risk.html" class="feature-card">
+      <h3>Risk Checker</h3>
+      <p>View danger-prone areas and understand current landslide risk.</p>
+    </a>
+
+    <a href="report.html" class="feature-card">
+      <h3>Report Landslide</h3>
+      <p>Submit location, description, and photos for quick review.</p>
+    </a>
+
+    <a href="AIchatbot.html" class="feature-card">
+      <h3>AI Assistant</h3>
+      <p>Get instant guidance on safety, preparedness, and response steps.</p>
+    </a>
+  </section>
+</main>
+<footer class="footer">
+    <div class="footer-container">
+
+        <div class="footer-col">
+            <h2 class="footer-heding">Landslide E-Portal</h2>
+            <p>Real-time landslide monitoring, prediction and reporting system.</p>
+        </div>
+
+        <div class="footer-col">
+            <h3>Quick Links</h3>
+            <a href="index.html">Home</a>
+            <a href="risk.html">Check Risk</a>
+            <a href="AIchatbot.html">AIchatbot</a>
+            <a href="report.html">Report</a>
+        </div>
+
+        <div class="footer-col">
+            <h3>Contact</h3>
+            <p>Email: support@portal.com</p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Landslide E-Portal | All Rights Reserved
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

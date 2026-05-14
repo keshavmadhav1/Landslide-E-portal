@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Assistant | Landslide E-Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="ai-page">
+
+    <canvas id="rain"></canvas>
+
+    <header>
+        <div class="heading1">Landslide E-Portal</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="risk.html">Check Risk</a></li>
+                <li><a href="AIchatbot.html">AIchatbot</a></li>
+                <li><a href="report.html">Report</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="ai-shell">
+        <section class="ai-hero">
+            <p class="ai-badge">AI Assistant</p>
+            <h1>Ask anything about landslide safety</h1>
+            <p class="ai-subtitle">
+                Get quick guidance, emergency steps, preparedness tips, and safety advice using a smart keyword-based
+                assistant.
+            </p>
+        </section>
+
+        <section class="ai-panel">
+            <div id="chatWindow" class="chat-window" aria-live="polite"></div>
+
+            <div class="quick-actions">
+                <button class="quick-btn" data-msg="Give me landslide safety tips">Safety Tips</button>
+                <button class="quick-btn" data-msg="What should I do during a landslide?">During Landslide</button>
+                <button class="quick-btn" data-msg="What should I do after a landslide?">After Landslide</button>
+                <button class="quick-btn" data-msg="How can I prepare before a landslide?">Preparedness</button>
+            </div>
+
+            <div class="chat-input-row">
+                <input id="userInput" type="text" placeholder="Type your question..." autocomplete="off" />
+                <button id="sendBtn" type="button">Send</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+    <div class="footer-container">
+
+        <div class="footer-col">
+            <h2 class="footer-heding">Landslide E-Portal</h2>
+            <p>Real-time landslide monitoring, prediction and reporting system.</p>
+        </div>
+
+        <div class="footer-col">
+            <h3>Quick Links</h3>
+            <a href="index.html">Home</a>
+            <a href="risk.html">Check Risk</a>
+            <a href="AIchatbot.html">AIchatbot</a>
+            <a href="report.html">Report</a>
+        </div>
+
+        <div class="footer-col">
+            <h3>Contact</h3>
+            <p>Email: support@portal.com</p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Landslide E-Portal | All Rights Reserved
+    </div>
+</footer>
+    <script src="js/main.js"></script>
+    <script src="js/AIchatbot.js"></script>
+</body>
+
+</html>

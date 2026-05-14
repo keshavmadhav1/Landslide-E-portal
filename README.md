@@ -55,14 +55,7 @@ Live Website
 
 https://landslide-e-portal.web.app/
 
-Example:
 
-https://yourproject.web.app
-Future Improvements
-Real-time alerts
-User authentication
-Admin dashboard
-AI-based landslide prediction
-Cloud database optimization
+
 Author
 KESHAV MADHAV
